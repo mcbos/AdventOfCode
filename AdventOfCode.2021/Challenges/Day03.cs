@@ -5,13 +5,11 @@ public class Day03 : Day<IEnumerable<char[]>>
 {
     private int recordLength;
 
-    public override IEnumerable<char[]> ParseInput(string raw)
+    public override IEnumerable<char[]> ParseInput(string[] lines)
     {
-        var rows = raw.Split('\n');
+        recordLength = lines.First().Length;
 
-        recordLength = rows.First().Length;
-
-        return rows
+        return lines
             .Select(x => x.ToCharArray())
             .ToList();
     }

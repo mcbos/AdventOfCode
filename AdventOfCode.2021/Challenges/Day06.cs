@@ -3,7 +3,7 @@
 [Day(2021, 6)]
 public class Day06 : Day<object>
 {
-    public override object ParseInput(string raw) => null!;
+    public override object ParseInput(string[] lines) => null!;
 
     public override object ExecutePart1() => null!;
 

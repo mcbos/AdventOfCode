@@ -3,8 +3,8 @@
 [Day(2021, 5)]
 public class Day05 : Day<List<(Vector2, Vector2)>>
 {
-    public override List<(Vector2, Vector2)> ParseInput(string raw) => 
-        raw.Split('\n').Select(row =>
+    public override List<(Vector2, Vector2)> ParseInput(string[] lines) => 
+        lines.Select(row =>
         {
             var matches = Regex.Matches(row, @"(\d+)");
 

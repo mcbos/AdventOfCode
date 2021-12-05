@@ -5,18 +5,15 @@ public record Instruction(string Direction, int Amount);
 [Day(2021, 2)]
 public class Day02 : Day<IEnumerable<Instruction>>
 {
-    public override IEnumerable<Instruction> ParseInput(string raw)
-    {
-        return raw
-            .Split('\n')
-            .Select(x =>
-            {
-                var parts = x.Split(" ");
+    public override IEnumerable<Instruction> ParseInput(string[] lines) =>
+        lines
+        .Select(x =>
+        {
+            var parts = x.Split(" ");
 
-                return new Instruction(parts[0], int.Parse(parts[1]));
-            })
-            .ToList();
-    }
+            return new Instruction(parts[0], int.Parse(parts[1]));
+        })
+        .ToList();
 
     public override object ExecutePart1()
     {
