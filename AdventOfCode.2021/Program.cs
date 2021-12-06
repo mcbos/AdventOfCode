@@ -4,9 +4,23 @@ IDay challenge = new Day05();
 Console.WriteLine(challenge);
 
 stopwatch.Start();
-Console.Write($"Part 1: {await challenge.ExecuteAsync(1)}");
-Console.WriteLine($" in {stopwatch.Elapsed}");
+
+var day = 5;
+var part = 1;
+var answer = await challenge.ExecuteAsync(part);
+
+Console.WriteLine($"Part {part}: {answer} in {stopwatch.Elapsed}");
+
+await AocApi.PostAnswer(day, part, answer);
+
+// Part 2
+challenge = new Day05(); // reset Input
 
 stopwatch.Restart();
-Console.Write($"Part 2: {await challenge.ExecuteAsync(2)}");
-Console.WriteLine($" in {stopwatch.Elapsed}");
+
+part = 2;
+answer = await challenge.ExecuteAsync(part);
+
+Console.WriteLine($"Part {part}: {answer} in {stopwatch.Elapsed}");
+
+await AocApi.PostAnswer(day, part, answer);
