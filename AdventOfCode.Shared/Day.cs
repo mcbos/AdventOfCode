@@ -2,9 +2,9 @@
 
 namespace AdventOfCode.Shared;
 
-public abstract class Day : Day<string>
+public abstract class Day : Day<string[]>
 {
-    public override string ParseInput(string raw) => raw;
+    public override string[] ParseInput(string[] lines) => lines;
 }
 
 public abstract class Day<T> : IDay
@@ -16,11 +16,11 @@ public abstract class Day<T> : IDay
     {
         var attribute = GetType().GetCustomAttribute<DayAttribute>() ?? throw new ArgumentNullException("DayAttribute");
 
-        Input = ParseInput(File.ReadAllText($@"Inputs{Path.DirectorySeparatorChar}{attribute.Day}.txt"));
+        Input = ParseInput(File.ReadAllLines($@"Inputs{Path.DirectorySeparatorChar}{attribute.Day}.txt"));
     }
 
-    public abstract T ParseInput(string raw);
-    object IDay.ParseInput(string raw) => ParseInput(raw)!;
+    public abstract T ParseInput(string[] lines);
+    object IDay.ParseInput(string[] lines) => ParseInput(lines)!;
 
     public async Task<object> ExecuteAsync(int part, CancellationToken cancellationToken = default) =>
         part switch

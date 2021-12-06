@@ -7,13 +7,11 @@ public class Day04 : Day<List<Board>>
 
     private IEnumerable<int> numbers = Enumerable.Empty<int>();
 
-    public override List<Board> ParseInput(string raw)
+    public override List<Board> ParseInput(string[] lines)
     {
-        var rows = raw.Split('\n');
+        numbers = lines.First().Split(',').Select(int.Parse).ToList();
 
-        numbers = rows.First().Split(',').Select(int.Parse).ToList();
-
-        return rows
+        return lines
             .Skip(2)
             .Where(x => !string.IsNullOrWhiteSpace(x))
             .Chunk(BoardSize)

@@ -3,10 +3,8 @@
 [Day(2021, 1)]
 public class Day01 : Day<IEnumerable<int>>
 {
-    public override IEnumerable<int> ParseInput(string raw)
-    {
-        return raw.Split('\n').Select(int.Parse).ToList();
-    }
+    public override IEnumerable<int> ParseInput(string[] lines) =>
+        lines.Select(int.Parse).ToList();
 
     public override object ExecutePart1() => Input
         .Zip(Input.Skip(1), (previous, item) => (previous, item))
