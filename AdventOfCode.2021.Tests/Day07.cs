@@ -18,7 +18,7 @@ public class Day07Tests
         var result = await day.ExecuteAsync(1);
 
         // Assert
-        result.Should().Be(null!);
+        result.Should().Be(37);
     }
 
     [Fact]
@@ -30,6 +30,6 @@ public class Day07Tests
         var result = await day.ExecuteAsync(2);
 
         // Assert
-        result.Should().Be(null!);
+        result.Should().Be(168);
     }
 }
