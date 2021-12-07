@@ -5,7 +5,7 @@ public class Day06 : Day<IDictionary<int, long>>
 {
     public override IDictionary<int, long> ParseInput(string[] lines)
     {
-        var dict = lines.First().Split(',').Select(int.Parse)
+        var dict = lines.First().AsCsv<int>()
             .GroupBy(x => x)
             .ToDictionary(x => x.Key, x => (long)x.Count());
 

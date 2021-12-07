@@ -9,7 +9,7 @@ public class Day04 : Day<List<Board>>
 
     public override List<Board> ParseInput(string[] lines)
     {
-        numbers = lines.First().Split(',').Select(int.Parse).ToList();
+        numbers = lines.First().AsCsv<int>();
 
         return lines
             .Skip(2)
@@ -59,14 +59,14 @@ public class Day04 : Day<List<Board>>
 public class Board
 {
     public bool Won = false;
-    public List<List<int>> Grid;
+    public IList<List<int>> Grid;
 
     private readonly int boardSize;
 
     public Board(int boardSize, IEnumerable<string> data)
     {
         // Add one to be able to mark zero's
-        Grid = data.Select(x => x.Split(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => int.Parse(x) + 1).ToList()).ToList();
+        Grid = data.Select(x => x.AsCsv<int>(' ', StringSplitOptions.RemoveEmptyEntries).Select(x => x + 1).ToList()).ToList();
         this.boardSize = boardSize;
     }
 
