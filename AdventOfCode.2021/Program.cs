@@ -1,11 +1,11 @@
 ﻿var stopwatch = new Stopwatch();
-IDay challenge = new Day08();
+var challenge = new Day09();
 
 Console.WriteLine(challenge);
 
 stopwatch.Start();
 
-var day = 8;
+var day = 9;
 var part = 1;
 var answer = await challenge.ExecuteAsync(part);
 
